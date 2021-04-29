@@ -462,8 +462,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     classObject: function classObject() {
       return {
         "form-group": true,
-        "bg-gray-300": !this.showAutocomplete,
-        "bg-white": this.showAutocomplete
+        hidden: !this.showAutocomplete
+        // "bg-white": this.showAutocomplete,
       };
     }
   },

@@ -90,7 +90,7 @@ export default {
       if (this.checked) {
         formData.append(this.field.attribute, this.value || "");
       } else {
-        formData.append(this.field.attribute, null);
+        formData.append(this.field.attribute, "");
       }
     },
 

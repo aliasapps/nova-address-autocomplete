@@ -504,7 +504,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       if (this.checked) {
         formData.append(this.field.attribute, this.value || "");
       } else {
-        formData.append(this.field.attribute, null);
+        formData.append(this.field.attribute, "");
       }
     },
 

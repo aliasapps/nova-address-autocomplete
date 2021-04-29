@@ -2,7 +2,7 @@
   <default-field :field="field">
     <template slot="field">
       <div class="grid grid-cols-6">
-        <div class="col-span-1 flex justify-center items-center">
+        <div class="col-span-1 flex justify-center">
           <input
             id="alt-address"
             type="checkbox"

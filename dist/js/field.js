@@ -457,6 +457,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   props: ["resourceName", "resourceId", "field"],
 
   created: function created() {
+    console.log("value: ", this.field.value, "checked: ", this.checked);
     // Nova.$on("has_alternate_address-change", this.handleListener);
   },
 

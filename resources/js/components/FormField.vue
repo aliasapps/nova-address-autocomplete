@@ -44,6 +44,7 @@ export default {
   props: ["resourceName", "resourceId", "field"],
 
   created() {
+    console.log("value: ", this.field.value, "checked: ", this.checked);
     // Nova.$on("has_alternate_address-change", this.handleListener);
   },
 

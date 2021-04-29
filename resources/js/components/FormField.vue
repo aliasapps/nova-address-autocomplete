@@ -1,14 +1,15 @@
 <template>
   <default-field :field="field">
     <template slot="field">
-      <!-- <div class="form-group"> -->
       <div class="grid grid-cols-6">
-        <input
-          id="alt-address"
-          type="checkbox"
-          class="checkbox"
-          v-model="checked"
-        />
+        <div class="col-span-1 flex justify-center items-center">
+          <input
+            id="alt-address"
+            type="checkbox"
+            class="checkbox"
+            v-model="checked"
+          />
+        </div>
 
         <div :class="classObject">
           <vue-google-autocomplete

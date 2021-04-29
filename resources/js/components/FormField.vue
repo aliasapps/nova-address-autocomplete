@@ -2,15 +2,16 @@
   <default-field :field="field">
     <template slot="field">
       <!-- <div class="form-group"> -->
-      <input
-        id="alt-address"
-        type="checkbox"
-        class="checkbox"
-        v-model="checked"
-        @change="handleChange"
-      />
-      <p>{{ checked }}</p>
+
       <div :class="classObject">
+        <input
+          id="alt-address"
+          type="checkbox"
+          class="checkbox"
+          v-model="checked"
+          @change="handleChange"
+        />
+        <p>{{ checked }} he</p>
         <vue-google-autocomplete
           ref="address"
           :id="field.name"

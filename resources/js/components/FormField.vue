@@ -84,7 +84,10 @@ export default {
      * Set the initial, internal value for the field.
      */
     setInitialValue() {
-      this.value = this.field.value || "";
+      if (this.field.value) {
+        this.checked = true;
+        this.value = this.field.value || "";
+      }
     },
 
     /**

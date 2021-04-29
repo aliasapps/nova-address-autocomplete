@@ -498,7 +498,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
      * Set the initial, internal value for the field.
      */
     setInitialValue: function setInitialValue() {
-      this.value = this.field.value || "";
+      if (this.field.value) {
+        this.checked = true;
+        this.value = this.field.value || "";
+      }
     },
 
 

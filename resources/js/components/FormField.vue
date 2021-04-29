@@ -1,6 +1,5 @@
 <template>
-  <!-- <default-field :field="field"> -->
-  <default-field :field="'heee'">
+  <default-field :field="field">
     <template slot="field">
       <div class="form-group">
         <div>
@@ -39,7 +38,8 @@ export default {
   props: ["resourceName", "resourceId", "field"],
 
   created() {
-    console.log("hai google address");
+    Nova.on("has_alternate_address-change", (data) => console.log(data));
+    // console.log("hai google address");
     // Nova.$on(`${this.orderType}_order_type-change`, this.handleOrderType);
   },
 

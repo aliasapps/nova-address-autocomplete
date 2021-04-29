@@ -439,7 +439,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 
@@ -452,7 +451,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   props: ["resourceName", "resourceId", "field"],
 
   created: function created() {
-    console.log("hai google address");
+    Nova.on("has_alternate_address-change", function (data) {
+      return console.log(data);
+    });
+    // console.log("hai google address");
     // Nova.$on(`${this.orderType}_order_type-change`, this.handleOrderType);
   },
 
@@ -27320,7 +27322,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "default-field",
-    { attrs: { field: "heee" } },
+    { attrs: { field: _vm.field } },
     [
       _c("template", { slot: "field" }, [
         _c(

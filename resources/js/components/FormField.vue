@@ -8,7 +8,6 @@
         class="checkbox"
         v-model="checked"
       />
-      <p>{{ checked }} jeeee</p>
 
       <div :class="classObject">
         <vue-google-autocomplete

@@ -411,8 +411,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_nova___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_laravel_nova__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_google_autocomplete__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_google_autocomplete___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_google_autocomplete__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -463,7 +461,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {
       address: "",
-      showAutocomplete: false,
+      //   showAutocomplete: false,
       checked: false
     };
   },
@@ -478,13 +476,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
 
-  methods: _defineProperty({
-    handleChange: function handleChange() {
-      this.showAutocomplete = this.checked;
-      console.log("showAutcomplete: ", this.showAutocomplete);
-      //   Nova.$emit(`${this.field.attribute}-change`, this.value);
-    },
-
+  methods: {
+    // handleChange() {
+    //   this.showAutocomplete = this.checked;
+    //   console.log("showAutcomplete: ", this.showAutocomplete);
+    //   //   Nova.$emit(`${this.field.attribute}-change`, this.value);
+    // },
 
     // handleListener(booleanValue) {
     //   this.showAutocomplete = booleanValue;
@@ -506,10 +503,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
      */
     fill: function fill(formData) {
       formData.append(this.field.attribute, this.value || "");
+    },
+
+
+    /**
+     * Update the field's internal value.
+     */
+    handleChange: function handleChange(value) {
+      this.value = value;
     }
-  }, "handleChange", function handleChange(value) {
-    this.value = value;
-  })
+  }
 });
 
 /***/ }),

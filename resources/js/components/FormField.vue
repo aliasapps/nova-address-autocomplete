@@ -47,7 +47,7 @@ export default {
   data: function() {
     return {
       address: "",
-      showAutocomplete: false,
+      //   showAutocomplete: false,
       checked: false,
     };
   },
@@ -63,11 +63,11 @@ export default {
   },
 
   methods: {
-    handleChange() {
-      this.showAutocomplete = this.checked;
-      console.log("showAutcomplete: ", this.showAutocomplete);
-      //   Nova.$emit(`${this.field.attribute}-change`, this.value);
-    },
+    // handleChange() {
+    //   this.showAutocomplete = this.checked;
+    //   console.log("showAutcomplete: ", this.showAutocomplete);
+    //   //   Nova.$emit(`${this.field.attribute}-change`, this.value);
+    // },
 
     // handleListener(booleanValue) {
     //   this.showAutocomplete = booleanValue;

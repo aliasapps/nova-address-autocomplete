@@ -411,6 +411,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_nova___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_laravel_nova__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_google_autocomplete__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_google_autocomplete___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_google_autocomplete__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -468,7 +477,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
   },
 
-  methods: {
+  methods: _defineProperty({
+    handleChange: function handleChange() {
+      Nova.$emit(this.field.attribute + "-change", this.value);
+    },
     handleListener: function handleListener(booleanValue) {
       this.showAutocomplete = booleanValue;
       console.log("showAutcomplete: ", this.showAutocomplete);
@@ -491,16 +503,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
      */
     fill: function fill(formData) {
       formData.append(this.field.attribute, this.value || "");
-    },
-
-
-    /**
-     * Update the field's internal value.
-     */
-    handleChange: function handleChange(value) {
-      this.value = value;
     }
-  }
+  }, "handleChange", function handleChange(value) {
+    this.value = value;
+  })
 });
 
 /***/ }),
@@ -27335,6 +27341,46 @@ var render = function() {
     { attrs: { field: _vm.field } },
     [
       _c("template", { slot: "field" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.value,
+              expression: "value"
+            }
+          ],
+          staticClass: "checkbox",
+          attrs: { id: _vm.field.name, type: "checkbox" },
+          domProps: {
+            checked: Array.isArray(_vm.value)
+              ? _vm._i(_vm.value, null) > -1
+              : _vm.value
+          },
+          on: {
+            change: [
+              function($event) {
+                var $$a = _vm.value,
+                  $$el = $event.target,
+                  $$c = $$el.checked ? true : false
+                if (Array.isArray($$a)) {
+                  var $$v = null,
+                    $$i = _vm._i($$a, $$v)
+                  if ($$el.checked) {
+                    $$i < 0 && (_vm.value = $$a.concat([$$v]))
+                  } else {
+                    $$i > -1 &&
+                      (_vm.value = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+                  }
+                } else {
+                  _vm.value = $$c
+                }
+              },
+              _vm.handleChange
+            ]
+          }
+        }),
+        _vm._v(" "),
         _c(
           "div",
           { class: _vm.classObject },

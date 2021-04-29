@@ -2,6 +2,13 @@
   <default-field :field="field">
     <template slot="field">
       <!-- <div class="form-group"> -->
+      <input
+        :id="field.name"
+        type="checkbox"
+        class="checkbox"
+        v-model="value"
+        @change="handleChange"
+      />
       <div :class="classObject">
         <vue-google-autocomplete
           ref="address"
@@ -55,6 +62,10 @@ export default {
   },
 
   methods: {
+    handleChange() {
+      Nova.$emit(`${this.field.attribute}-change`, this.value);
+    },
+
     handleListener(booleanValue) {
       this.showAutocomplete = booleanValue;
       console.log("showAutcomplete: ", this.showAutocomplete);

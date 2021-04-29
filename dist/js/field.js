@@ -437,8 +437,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
 
@@ -451,20 +449,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   props: ["resourceName", "resourceId", "field"],
 
   created: function created() {
-    Nova.$on("has_alternate_address-change", function (data) {
-      return console.log(data);
-    });
-    // console.log("hai google address");
-    // Nova.$on(`${this.orderType}_order_type-change`, this.handleOrderType);
+    Nova.$on("has_alternate_address-change", this.handleListener);
   },
 
 
   data: function data() {
     return {
-      address: ""
+      address: "",
+      showAutocomplete: false
     };
   },
+
   methods: {
+    handleListener: function handleListener(booleanValue) {
+      this.showAutocomplete = booleanValue;
+      console.log("showAutcomplete: ", this.showAutocomplete);
+    },
+
+
     getAddressData: function getAddressData(addressData, placeResultData, id) {
       this.handleChange(placeResultData.formatted_address);
     },
@@ -27329,16 +27331,16 @@ var render = function() {
           "div",
           { staticClass: "form-group" },
           [
-            _c("div", [_c("h1", [_vm._v("\n          hello\n        ")])]),
-            _vm._v(" "),
             _c("vue-google-autocomplete", {
               ref: "address",
-              staticClass: "w-full form-control form-input form-input-bordered",
-              class: _vm.errorClasses,
+              class: Object.assign({}, _vm.errorClasses, {
+                "bg-gray-300": !this.showAutcomplete
+              }),
               attrs: {
                 id: _vm.field.name,
                 placeholder: _vm.field.name,
-                country: _vm.field.countries
+                country: _vm.field.countries,
+                disabled: !this.showAutcomplete
               },
               on: { placechanged: _vm.getAddressData }
             })

@@ -2,18 +2,16 @@
   <default-field :field="field">
     <template slot="field">
       <div class="form-group">
-        <div>
-          <h1>
-            hello
-          </h1>
-        </div>
         <vue-google-autocomplete
           ref="address"
           :id="field.name"
-          class="w-full form-control form-input form-input-bordered"
-          :class="errorClasses"
           :placeholder="field.name"
           :country="field.countries"
+          :disabled="!this.showAutcomplete"
+          :class="{
+            ...errorClasses,
+            'bg-gray-300': !this.showAutcomplete,
+          }"
           v-on:placechanged="getAddressData"
         >
         </vue-google-autocomplete>
@@ -38,17 +36,22 @@ export default {
   props: ["resourceName", "resourceId", "field"],
 
   created() {
-    Nova.$on("has_alternate_address-change", (data) => console.log(data));
-    // console.log("hai google address");
-    // Nova.$on(`${this.orderType}_order_type-change`, this.handleOrderType);
+    Nova.$on("has_alternate_address-change", this.handleListener);
   },
 
   data: function() {
     return {
       address: "",
+      showAutocomplete: false,
     };
   },
+
   methods: {
+    handleListener(booleanValue) {
+      this.showAutocomplete = booleanValue;
+      console.log("showAutcomplete: ", this.showAutocomplete);
+    },
+
     getAddressData: function(addressData, placeResultData, id) {
       this.handleChange(placeResultData.formatted_address);
     },

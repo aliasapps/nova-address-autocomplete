@@ -2,24 +2,26 @@
   <default-field :field="field">
     <template slot="field">
       <!-- <div class="form-group"> -->
-      <input
-        id="alt-address"
-        type="checkbox"
-        class="checkbox"
-        v-model="checked"
-      />
+      <div class="flex">
+        <input
+          id="alt-address"
+          type="checkbox"
+          class="checkbox"
+          v-model="checked"
+        />
 
-      <div :class="classObject">
-        <vue-google-autocomplete
-          ref="address"
-          :id="field.name"
-          class="w-full form-control form-input form-input-bordered"
-          :class="errorClasses"
-          :placeholder="field.name"
-          :country="field.countries"
-          v-on:placechanged="getAddressData"
-        >
-        </vue-google-autocomplete>
+        <div :class="classObject">
+          <vue-google-autocomplete
+            ref="address"
+            :id="field.name"
+            class="w-full form-control form-input form-input-bordered"
+            :class="errorClasses"
+            :placeholder="field.name"
+            :country="field.countries"
+            v-on:placechanged="getAddressData"
+          >
+          </vue-google-autocomplete>
+        </div>
       </div>
 
       <p v-if="hasError" class="my-2 text-danger">

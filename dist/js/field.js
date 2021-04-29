@@ -442,6 +442,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -27347,61 +27349,66 @@ var render = function() {
     { attrs: { field: _vm.field } },
     [
       _c("template", { slot: "field" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.checked,
-              expression: "checked"
-            }
-          ],
-          staticClass: "checkbox",
-          attrs: { id: "alt-address", type: "checkbox" },
-          domProps: {
-            checked: Array.isArray(_vm.checked)
-              ? _vm._i(_vm.checked, null) > -1
-              : _vm.checked
-          },
-          on: {
-            change: function($event) {
-              var $$a = _vm.checked,
-                $$el = $event.target,
-                $$c = $$el.checked ? true : false
-              if (Array.isArray($$a)) {
-                var $$v = null,
-                  $$i = _vm._i($$a, $$v)
-                if ($$el.checked) {
-                  $$i < 0 && (_vm.checked = $$a.concat([$$v]))
+        _c("div", { staticClass: "flex" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.checked,
+                expression: "checked"
+              }
+            ],
+            staticClass: "checkbox",
+            attrs: { id: "alt-address", type: "checkbox" },
+            domProps: {
+              checked: Array.isArray(_vm.checked)
+                ? _vm._i(_vm.checked, null) > -1
+                : _vm.checked
+            },
+            on: {
+              change: function($event) {
+                var $$a = _vm.checked,
+                  $$el = $event.target,
+                  $$c = $$el.checked ? true : false
+                if (Array.isArray($$a)) {
+                  var $$v = null,
+                    $$i = _vm._i($$a, $$v)
+                  if ($$el.checked) {
+                    $$i < 0 && (_vm.checked = $$a.concat([$$v]))
+                  } else {
+                    $$i > -1 &&
+                      (_vm.checked = $$a
+                        .slice(0, $$i)
+                        .concat($$a.slice($$i + 1)))
+                  }
                 } else {
-                  $$i > -1 &&
-                    (_vm.checked = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+                  _vm.checked = $$c
                 }
-              } else {
-                _vm.checked = $$c
               }
             }
-          }
-        }),
-        _vm._v(" "),
-        _c(
-          "div",
-          { class: _vm.classObject },
-          [
-            _c("vue-google-autocomplete", {
-              ref: "address",
-              staticClass: "w-full form-control form-input form-input-bordered",
-              class: _vm.errorClasses,
-              attrs: {
-                id: _vm.field.name,
-                placeholder: _vm.field.name,
-                country: _vm.field.countries
-              },
-              on: { placechanged: _vm.getAddressData }
-            })
-          ],
-          1
-        ),
+          }),
+          _vm._v(" "),
+          _c(
+            "div",
+            { class: _vm.classObject },
+            [
+              _c("vue-google-autocomplete", {
+                ref: "address",
+                staticClass:
+                  "w-full form-control form-input form-input-bordered",
+                class: _vm.errorClasses,
+                attrs: {
+                  id: _vm.field.name,
+                  placeholder: _vm.field.name,
+                  country: _vm.field.countries
+                },
+                on: { placechanged: _vm.getAddressData }
+              })
+            ],
+            1
+          )
+        ]),
         _vm._v(" "),
         _vm.hasError
           ? _c("p", { staticClass: "my-2 text-danger" }, [

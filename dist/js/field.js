@@ -434,12 +434,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
@@ -27326,49 +27320,39 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
-    {
-      class: {
-        hidden: !_vm.showAutcomplete
-      }
-    },
+    "default-field",
+    { attrs: { field: _vm.field } },
     [
-      _c(
-        "default-field",
-        { attrs: { field: _vm.field } },
-        [
-          _c("template", { slot: "field" }, [
-            _c(
-              "div",
-              { staticClass: "form-group" },
-              [
-                _c("vue-google-autocomplete", {
-                  ref: "address",
-                  staticClass:
-                    "w-full form-control form-input form-input-bordered",
-                  class: _vm.errorClasses,
-                  attrs: {
-                    id: _vm.field.name,
-                    placeholder: _vm.field.name,
-                    country: _vm.field.countries
-                  },
-                  on: { placechanged: _vm.getAddressData }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _vm.hasError
-              ? _c("p", { staticClass: "my-2 text-danger" }, [
-                  _vm._v("\n        " + _vm._s(_vm.firstError) + "\n      ")
-                ])
-              : _vm._e()
-          ])
-        ],
-        2
-      )
+      _c("template", { slot: "field" }, [
+        _c(
+          "div",
+          { staticClass: "form-group" },
+          [
+            _c("vue-google-autocomplete", {
+              ref: "address",
+              staticClass: "w-full form-control form-input form-input-bordered",
+              class: Object.assign({}, _vm.errorClasses, {
+                "bg-gray-300": true
+              }),
+              attrs: {
+                id: _vm.field.name,
+                placeholder: _vm.field.name,
+                country: _vm.field.countries
+              },
+              on: { placechanged: _vm.getAddressData }
+            })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _vm.hasError
+          ? _c("p", { staticClass: "my-2 text-danger" }, [
+              _vm._v("\n      " + _vm._s(_vm.firstError) + "\n    ")
+            ])
+          : _vm._e()
+      ])
     ],
-    1
+    2
   )
 }
 var staticRenderFns = []

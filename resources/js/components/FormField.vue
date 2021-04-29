@@ -1,30 +1,24 @@
 <template>
-  <div
-    :class="{
-      hidden: !showAutcomplete,
-    }"
-  >
-    <default-field :field="field">
-      <template slot="field">
-        <div class="form-group">
-          <vue-google-autocomplete
-            ref="address"
-            :id="field.name"
-            class="w-full form-control form-input form-input-bordered"
-            :class="errorClasses"
-            :placeholder="field.name"
-            :country="field.countries"
-            v-on:placechanged="getAddressData"
-          >
-          </vue-google-autocomplete>
-        </div>
+  <default-field :field="field">
+    <template slot="field">
+      <div class="form-group">
+        <vue-google-autocomplete
+          ref="address"
+          :id="field.name"
+          class="w-full form-control form-input form-input-bordered"
+          :class="{ ...errorClasses, 'bg-gray-300': true }"
+          :placeholder="field.name"
+          :country="field.countries"
+          v-on:placechanged="getAddressData"
+        >
+        </vue-google-autocomplete>
+      </div>
 
-        <p v-if="hasError" class="my-2 text-danger">
-          {{ firstError }}
-        </p>
-      </template>
-    </default-field>
-  </div>
+      <p v-if="hasError" class="my-2 text-danger">
+        {{ firstError }}
+      </p>
+    </template>
+  </default-field>
 </template>
 
 <script>

@@ -9,6 +9,7 @@
         v-model="checked"
         @change="handleChange"
       />
+      <p>{{ checked }}</p>
       <div :class="classObject">
         <vue-google-autocomplete
           ref="address"

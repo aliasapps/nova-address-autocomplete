@@ -44,19 +44,15 @@ export default {
   props: ["resourceName", "resourceId", "field"],
 
   created() {
-    console.log("value: ", this.field.value, "checked: ", this.checked);
+    // console.log("value: ", this.field.value, "checked: ", this.checked);
     if (this.field.value) {
       this.checked = true;
-      this.value = this.field.value;
     }
-
-    // Nova.$on("has_alternate_address-change", this.handleListener);
   },
 
   data: function() {
     return {
       address: "",
-      //   showAutocomplete: false,
       checked: false,
     };
   },
@@ -73,16 +69,6 @@ export default {
   },
 
   methods: {
-    // handleChange() {
-    //   this.showAutocomplete = this.checked;
-    //   console.log("showAutcomplete: ", this.showAutocomplete);
-    //   //   Nova.$emit(`${this.field.attribute}-change`, this.value);
-    // },
-
-    // handleListener(booleanValue) {
-    //   this.showAutocomplete = booleanValue;
-    // },
-
     getAddressData: function(addressData, placeResultData, id) {
       this.handleChange(placeResultData.formatted_address);
     },

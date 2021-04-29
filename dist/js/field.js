@@ -445,7 +445,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -474,7 +473,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     classObject: function classObject() {
       return {
         "form-group": true,
-        hidden: !this.showAutocomplete
+        hidden: !this.checked
         // "bg-white": this.showAutocomplete,
       };
     }
@@ -27363,28 +27362,23 @@ var render = function() {
               : _vm.checked
           },
           on: {
-            change: [
-              function($event) {
-                var $$a = _vm.checked,
-                  $$el = $event.target,
-                  $$c = $$el.checked ? true : false
-                if (Array.isArray($$a)) {
-                  var $$v = null,
-                    $$i = _vm._i($$a, $$v)
-                  if ($$el.checked) {
-                    $$i < 0 && (_vm.checked = $$a.concat([$$v]))
-                  } else {
-                    $$i > -1 &&
-                      (_vm.checked = $$a
-                        .slice(0, $$i)
-                        .concat($$a.slice($$i + 1)))
-                  }
+            change: function($event) {
+              var $$a = _vm.checked,
+                $$el = $event.target,
+                $$c = $$el.checked ? true : false
+              if (Array.isArray($$a)) {
+                var $$v = null,
+                  $$i = _vm._i($$a, $$v)
+                if ($$el.checked) {
+                  $$i < 0 && (_vm.checked = $$a.concat([$$v]))
                 } else {
-                  _vm.checked = $$c
+                  $$i > -1 &&
+                    (_vm.checked = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
                 }
-              },
-              _vm.handleChange
-            ]
+              } else {
+                _vm.checked = $$c
+              }
+            }
           }
         }),
         _vm._v(" "),

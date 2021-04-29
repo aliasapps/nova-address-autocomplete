@@ -7,7 +7,6 @@
         type="checkbox"
         class="checkbox"
         v-model="checked"
-        @change="handleChange"
       />
       <p>{{ checked }} jeeee</p>
 
@@ -58,7 +57,7 @@ export default {
     classObject() {
       return {
         "form-group": true,
-        hidden: !this.showAutocomplete,
+        hidden: !this.checked,
         // "bg-white": this.showAutocomplete,
       };
     },

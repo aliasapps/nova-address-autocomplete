@@ -38,7 +38,7 @@ export default {
   props: ["resourceName", "resourceId", "field"],
 
   created() {
-    Nova.on("has_alternate_address-change", (data) => console.log(data));
+    Nova.$on("has_alternate_address-change", (data) => console.log(data));
     // console.log("hai google address");
     // Nova.$on(`${this.orderType}_order_type-change`, this.handleOrderType);
   },

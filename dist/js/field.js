@@ -451,7 +451,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   props: ["resourceName", "resourceId", "field"],
 
   created: function created() {
-    Nova.on("has_alternate_address-change", function (data) {
+    Nova.$on("has_alternate_address-change", function (data) {
       return console.log(data);
     });
     // console.log("hai google address");

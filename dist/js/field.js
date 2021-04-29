@@ -456,7 +456,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   props: ["resourceName", "resourceId", "field"],
 
   created: function created() {
-    Nova.$on("has_alternate_address-change", this.handleListener);
+    // Nova.$on("has_alternate_address-change", this.handleListener);
   },
 
 
@@ -479,13 +479,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
   methods: _defineProperty({
     handleChange: function handleChange() {
-      Nova.$emit(this.field.attribute + "-change", this.value);
-    },
-    handleListener: function handleListener(booleanValue) {
-      this.showAutocomplete = booleanValue;
+      this.showAutocomplete = this.value;
       console.log("showAutcomplete: ", this.showAutocomplete);
+      //   Nova.$emit(`${this.field.attribute}-change`, this.value);
     },
 
+
+    // handleListener(booleanValue) {
+    //   this.showAutocomplete = booleanValue;
+    // },
 
     getAddressData: function getAddressData(addressData, placeResultData, id) {
       this.handleChange(placeResultData.formatted_address);

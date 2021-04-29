@@ -41,7 +41,7 @@ export default {
   props: ["resourceName", "resourceId", "field"],
 
   created() {
-    Nova.$on("has_alternate_address-change", this.handleListener);
+    // Nova.$on("has_alternate_address-change", this.handleListener);
   },
 
   data: function() {
@@ -63,13 +63,14 @@ export default {
 
   methods: {
     handleChange() {
-      Nova.$emit(`${this.field.attribute}-change`, this.value);
+      this.showAutocomplete = this.value;
+      console.log("showAutcomplete: ", this.showAutocomplete);
+      //   Nova.$emit(`${this.field.attribute}-change`, this.value);
     },
 
-    handleListener(booleanValue) {
-      this.showAutocomplete = booleanValue;
-      console.log("showAutcomplete: ", this.showAutocomplete);
-    },
+    // handleListener(booleanValue) {
+    //   this.showAutocomplete = booleanValue;
+    // },
 
     getAddressData: function(addressData, placeResultData, id) {
       this.handleChange(placeResultData.formatted_address);

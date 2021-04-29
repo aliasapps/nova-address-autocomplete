@@ -479,7 +479,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
   methods: _defineProperty({
     handleChange: function handleChange() {
-      this.showAutocomplete = this.value;
+      this.showAutocomplete = this.checkbox;
       console.log("showAutcomplete: ", this.showAutocomplete);
       //   Nova.$emit(`${this.field.attribute}-change`, this.value);
     },
@@ -27348,34 +27348,36 @@ var render = function() {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.value,
-              expression: "value"
+              value: _vm.checkbox,
+              expression: "checkbox"
             }
           ],
           staticClass: "checkbox",
           attrs: { id: _vm.field.name, type: "checkbox" },
           domProps: {
-            checked: Array.isArray(_vm.value)
-              ? _vm._i(_vm.value, null) > -1
-              : _vm.value
+            checked: Array.isArray(_vm.checkbox)
+              ? _vm._i(_vm.checkbox, null) > -1
+              : _vm.checkbox
           },
           on: {
             change: [
               function($event) {
-                var $$a = _vm.value,
+                var $$a = _vm.checkbox,
                   $$el = $event.target,
                   $$c = $$el.checked ? true : false
                 if (Array.isArray($$a)) {
                   var $$v = null,
                     $$i = _vm._i($$a, $$v)
                   if ($$el.checked) {
-                    $$i < 0 && (_vm.value = $$a.concat([$$v]))
+                    $$i < 0 && (_vm.checkbox = $$a.concat([$$v]))
                   } else {
                     $$i > -1 &&
-                      (_vm.value = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+                      (_vm.checkbox = $$a
+                        .slice(0, $$i)
+                        .concat($$a.slice($$i + 1)))
                   }
                 } else {
-                  _vm.value = $$c
+                  _vm.checkbox = $$c
                 }
               },
               _vm.handleChange

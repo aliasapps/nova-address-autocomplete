@@ -6,7 +6,7 @@
         :id="field.name"
         type="checkbox"
         class="checkbox"
-        v-model="value"
+        v-model="checkbox"
         @change="handleChange"
       />
       <div :class="classObject">
@@ -63,7 +63,7 @@ export default {
 
   methods: {
     handleChange() {
-      this.showAutocomplete = this.value;
+      this.showAutocomplete = this.checkbox;
       console.log("showAutcomplete: ", this.showAutocomplete);
       //   Nova.$emit(`${this.field.attribute}-change`, this.value);
     },

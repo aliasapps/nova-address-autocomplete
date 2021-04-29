@@ -17,7 +17,7 @@
             :id="field.name"
             class="w-full form-control form-input form-input-bordered"
             :class="errorClasses"
-            :placeholder="field.value"
+            :placeholder="placeholder"
             :country="field.countries"
             v-on:placechanged="getAddressData"
           >
@@ -58,6 +58,10 @@ export default {
   },
 
   computed: {
+    placeholder() {
+      return this.field.value ? this.field.value : this.field.name;
+    },
+
     classObject() {
       return {
         "form-group col-span-5 col-start-2": true,

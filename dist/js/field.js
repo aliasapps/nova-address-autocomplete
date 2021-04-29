@@ -472,6 +472,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
   computed: {
+    placeholder: function placeholder() {
+      return this.field.value ? this.field.value : this.field.name;
+    },
     classObject: function classObject() {
       return {
         "form-group col-span-5 col-start-2": true,
@@ -27400,7 +27403,7 @@ var render = function() {
                 class: _vm.errorClasses,
                 attrs: {
                   id: _vm.field.name,
-                  placeholder: _vm.field.value,
+                  placeholder: _vm.placeholder,
                   country: _vm.field.countries
                 },
                 on: { placechanged: _vm.getAddressData }

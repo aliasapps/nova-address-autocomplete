@@ -27332,7 +27332,7 @@ var render = function() {
               ref: "address",
               staticClass: "w-full form-control form-input form-input-bordered",
               class: Object.assign({}, _vm.errorClasses, {
-                "bg-gray-300": true
+                "bg-gray-300": !_vm.showAutcomplete
               }),
               attrs: {
                 id: _vm.field.name,

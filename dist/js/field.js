@@ -461,7 +461,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     handleListener: function handleListener(booleanValue) {
       if (booleanValue) {
         this.showAutocomplete = true;
-      } else {}
+      } else {
+        this.showAutocomplete = false;
+      }
       console.log("showAutcomplete: ", this.showAutocomplete);
     },
 

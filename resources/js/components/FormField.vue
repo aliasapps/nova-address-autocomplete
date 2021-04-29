@@ -49,6 +49,7 @@ export default {
       if (booleanValue) {
         this.showAutocomplete = true;
       } else {
+        this.showAutocomplete = false;
       }
       console.log("showAutcomplete: ", this.showAutocomplete);
     },

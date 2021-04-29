@@ -458,6 +458,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   created: function created() {
     console.log("value: ", this.field.value, "checked: ", this.checked);
+    if (this.field.value) {
+      this.checked = true;
+      this.value = this.field.value;
+    }
+
     // Nova.$on("has_alternate_address-change", this.handleListener);
   },
 
@@ -499,10 +504,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
      * Set the initial, internal value for the field.
      */
     setInitialValue: function setInitialValue() {
-      if (this.field.value) {
-        this.checked = true;
-        this.value = this.field.value || "";
-      }
+      this.value = this.field.value || "";
     },
 
 
@@ -27412,7 +27414,7 @@ var render = function() {
                 class: _vm.errorClasses,
                 attrs: {
                   id: _vm.field.name,
-                  placeholder: _vm.field.name,
+                  placeholder: _vm.field.value,
                   country: _vm.field.countries
                 },
                 on: { placechanged: _vm.getAddressData }

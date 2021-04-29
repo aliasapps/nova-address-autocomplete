@@ -17,7 +17,7 @@
             :id="field.name"
             class="w-full form-control form-input form-input-bordered"
             :class="errorClasses"
-            :placeholder="field.name"
+            :placeholder="field.value"
             :country="field.countries"
             v-on:placechanged="getAddressData"
           >
@@ -45,6 +45,11 @@ export default {
 
   created() {
     console.log("value: ", this.field.value, "checked: ", this.checked);
+    if (this.field.value) {
+      this.checked = true;
+      this.value = this.field.value;
+    }
+
     // Nova.$on("has_alternate_address-change", this.handleListener);
   },
 
@@ -85,10 +90,7 @@ export default {
      * Set the initial, internal value for the field.
      */
     setInitialValue() {
-      if (this.field.value) {
-        this.checked = true;
-        this.value = this.field.value || "";
-      }
+      this.value = this.field.value || "";
     },
 
     /**

@@ -1,5 +1,6 @@
 <template>
-  <default-field :field="field">
+  <!-- <default-field :field="field"> -->
+  <default-field :field="'heee'">
     <template slot="field">
       <div class="form-group">
         <div>

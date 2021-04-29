@@ -434,6 +434,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -27321,6 +27326,8 @@ var render = function() {
           "div",
           { staticClass: "form-group" },
           [
+            _c("div", [_c("h1", [_vm._v("\n          hello\n        ")])]),
+            _vm._v(" "),
             _c("vue-google-autocomplete", {
               ref: "address",
               staticClass: "w-full form-control form-input form-input-bordered",

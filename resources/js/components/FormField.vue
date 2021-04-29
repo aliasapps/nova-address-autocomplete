@@ -87,7 +87,11 @@ export default {
      * Fill the given FormData object with the field's internal value.
      */
     fill(formData) {
-      formData.append(this.field.attribute, this.value || "");
+      if (this.checked) {
+        formData.append(this.field.attribute, this.value || "");
+      } else {
+        formData.append(this.field.attribute, null);
+      }
     },
 
     /**

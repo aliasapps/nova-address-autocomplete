@@ -10,6 +10,7 @@
           :placeholder="field.name"
           :country="field.countries"
           v-on:placechanged="getAddressData"
+          v-model="value"
         >
         </vue-google-autocomplete>
       </div>
@@ -45,7 +46,10 @@ export default {
 
   methods: {
     handleListener(booleanValue) {
-      this.showAutocomplete = booleanValue;
+      if (booleanValue) {
+        this.showAutocomplete = true;
+      } else {
+      }
       console.log("showAutcomplete: ", this.showAutocomplete);
     },
 

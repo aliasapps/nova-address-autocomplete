@@ -434,6 +434,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -458,7 +459,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   methods: {
     handleListener: function handleListener(booleanValue) {
-      this.showAutocomplete = booleanValue;
+      if (booleanValue) {
+        this.showAutocomplete = true;
+      } else {}
       console.log("showAutcomplete: ", this.showAutocomplete);
     },
 
@@ -27338,7 +27341,14 @@ var render = function() {
                 placeholder: _vm.field.name,
                 country: _vm.field.countries
               },
-              on: { placechanged: _vm.getAddressData }
+              on: { placechanged: _vm.getAddressData },
+              model: {
+                value: _vm.value,
+                callback: function($$v) {
+                  _vm.value = $$v
+                },
+                expression: "value"
+              }
             })
           ],
           1

@@ -1,7 +1,7 @@
 <template>
   <div
     :class="{
-      hidden: !this.showAutcomplete,
+      hidden: !showAutcomplete,
     }"
   >
     <default-field :field="field">

@@ -27329,7 +27329,7 @@ var render = function() {
     "div",
     {
       class: {
-        hidden: !this.showAutcomplete
+        hidden: !_vm.showAutcomplete
       }
     },
     [

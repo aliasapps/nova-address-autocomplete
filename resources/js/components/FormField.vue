@@ -1,16 +1,16 @@
 <template>
   <default-field :field="field">
     <template slot="field">
-      <div class="form-group">
+      <!-- <div class="form-group"> -->
+      <div :class="classObject">
         <vue-google-autocomplete
           ref="address"
           :id="field.name"
           class="w-full form-control form-input form-input-bordered"
-          :class="{ ...errorClasses, 'bg-gray-300': showAutcomplete === false }"
+          :class="errorClasses"
           :placeholder="field.name"
           :country="field.countries"
           v-on:placechanged="getAddressData"
-          v-model="value"
         >
         </vue-google-autocomplete>
       </div>
@@ -37,20 +37,26 @@ export default {
     Nova.$on("has_alternate_address-change", this.handleListener);
   },
 
-  data() {
+  data: function() {
     return {
       address: "",
       showAutocomplete: false,
     };
   },
 
+  computed: {
+    classObject() {
+      return {
+        "form-group": true,
+        "bg-gray-300": !this.showAutocomplete,
+        "bg-white": this.showAutocomplete,
+      };
+    },
+  },
+
   methods: {
     handleListener(booleanValue) {
-      if (booleanValue) {
-        this.showAutocomplete = true;
-      } else {
-        this.showAutocomplete = false;
-      }
+      this.showAutocomplete = booleanValue;
       console.log("showAutcomplete: ", this.showAutocomplete);
     },
 

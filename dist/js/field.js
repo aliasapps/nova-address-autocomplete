@@ -449,6 +449,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   created: function created() {
     Nova.$on("has_alternate_address-change", this.handleListener);
   },
+
+
   data: function data() {
     return {
       address: "",
@@ -456,14 +458,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     };
   },
 
+  computed: {
+    classObject: function classObject() {
+      return {
+        "form-group": true,
+        "bg-gray-300": !this.showAutocomplete,
+        "bg-white": this.showAutocomplete
+      };
+    }
+  },
 
   methods: {
     handleListener: function handleListener(booleanValue) {
-      if (booleanValue) {
-        this.showAutocomplete = true;
-      } else {
-        this.showAutocomplete = false;
-      }
+      this.showAutocomplete = booleanValue;
       console.log("showAutcomplete: ", this.showAutocomplete);
     },
 
@@ -27330,27 +27337,18 @@ var render = function() {
       _c("template", { slot: "field" }, [
         _c(
           "div",
-          { staticClass: "form-group" },
+          { class: _vm.classObject },
           [
             _c("vue-google-autocomplete", {
               ref: "address",
               staticClass: "w-full form-control form-input form-input-bordered",
-              class: Object.assign({}, _vm.errorClasses, {
-                "bg-gray-300": _vm.showAutcomplete === false
-              }),
+              class: _vm.errorClasses,
               attrs: {
                 id: _vm.field.name,
                 placeholder: _vm.field.name,
                 country: _vm.field.countries
               },
-              on: { placechanged: _vm.getAddressData },
-              model: {
-                value: _vm.value,
-                callback: function($$v) {
-                  _vm.value = $$v
-                },
-                expression: "value"
-              }
+              on: { placechanged: _vm.getAddressData }
             })
           ],
           1

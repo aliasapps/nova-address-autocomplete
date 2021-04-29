@@ -6,7 +6,7 @@
           ref="address"
           :id="field.name"
           class="w-full form-control form-input form-input-bordered"
-          :class="{ 'bg-gray-300': !showAutcomplete }"
+          :class="{ ...errorClasses, 'bg-gray-300': showAutcomplete === false }"
           :placeholder="field.name"
           :country="field.countries"
           v-on:placechanged="getAddressData"

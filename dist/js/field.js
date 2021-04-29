@@ -27330,7 +27330,9 @@ var render = function() {
             _c("vue-google-autocomplete", {
               ref: "address",
               staticClass: "w-full form-control form-input form-input-bordered",
-              class: { "bg-gray-300": !_vm.showAutcomplete },
+              class: Object.assign({}, _vm.errorClasses, {
+                "bg-gray-300": _vm.showAutcomplete === false
+              }),
               attrs: {
                 id: _vm.field.name,
                 placeholder: _vm.field.name,

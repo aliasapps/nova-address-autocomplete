@@ -2,7 +2,7 @@
   <default-field :field="field">
     <template slot="field">
       <!-- <div class="form-group"> -->
-      <div class="flex">
+      <div class="grid grid-cols-6">
         <input
           id="alt-address"
           type="checkbox"
@@ -57,7 +57,8 @@ export default {
   computed: {
     classObject() {
       return {
-        "form-group": true,
+        "form-group col-span-5 col-start-2": true,
+
         hidden: !this.checked,
         // "bg-white": this.showAutocomplete,
       };

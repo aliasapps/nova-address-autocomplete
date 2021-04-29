@@ -471,7 +471,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   computed: {
     classObject: function classObject() {
       return {
-        "form-group": true,
+        "form-group col-span-5 col-start-2": true,
+
         hidden: !this.checked
         // "bg-white": this.showAutocomplete,
       };
@@ -27349,7 +27350,7 @@ var render = function() {
     { attrs: { field: _vm.field } },
     [
       _c("template", { slot: "field" }, [
-        _c("div", { staticClass: "flex" }, [
+        _c("div", { staticClass: "grid grid-cols-6" }, [
           _c("input", {
             directives: [
               {

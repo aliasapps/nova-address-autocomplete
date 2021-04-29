@@ -3,9 +3,10 @@
     <template slot="field">
       <!-- <div class="form-group"> -->
       <input
+        id="alt-address"
         type="checkbox"
         class="checkbox"
-        v-model="checkbox"
+        v-model="checked"
         @change="handleChange"
       />
       <div :class="classObject">
@@ -62,7 +63,7 @@ export default {
 
   methods: {
     handleChange() {
-      this.showAutocomplete = this.checkbox;
+      this.showAutocomplete = this.checked;
       console.log("showAutcomplete: ", this.showAutocomplete);
       //   Nova.$emit(`${this.field.attribute}-change`, this.value);
     },

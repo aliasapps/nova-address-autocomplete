@@ -443,6 +443,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -478,7 +479,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
   methods: _defineProperty({
     handleChange: function handleChange() {
-      this.showAutocomplete = this.checkbox;
+      this.showAutocomplete = this.checked;
       console.log("showAutcomplete: ", this.showAutocomplete);
       //   Nova.$emit(`${this.field.attribute}-change`, this.value);
     },
@@ -27347,36 +27348,36 @@ var render = function() {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.checkbox,
-              expression: "checkbox"
+              value: _vm.checked,
+              expression: "checked"
             }
           ],
           staticClass: "checkbox",
-          attrs: { type: "checkbox" },
+          attrs: { id: "alt-address", type: "checkbox" },
           domProps: {
-            checked: Array.isArray(_vm.checkbox)
-              ? _vm._i(_vm.checkbox, null) > -1
-              : _vm.checkbox
+            checked: Array.isArray(_vm.checked)
+              ? _vm._i(_vm.checked, null) > -1
+              : _vm.checked
           },
           on: {
             change: [
               function($event) {
-                var $$a = _vm.checkbox,
+                var $$a = _vm.checked,
                   $$el = $event.target,
                   $$c = $$el.checked ? true : false
                 if (Array.isArray($$a)) {
                   var $$v = null,
                     $$i = _vm._i($$a, $$v)
                   if ($$el.checked) {
-                    $$i < 0 && (_vm.checkbox = $$a.concat([$$v]))
+                    $$i < 0 && (_vm.checked = $$a.concat([$$v]))
                   } else {
                     $$i > -1 &&
-                      (_vm.checkbox = $$a
+                      (_vm.checked = $$a
                         .slice(0, $$i)
                         .concat($$a.slice($$i + 1)))
                   }
                 } else {
-                  _vm.checkbox = $$c
+                  _vm.checked = $$c
                 }
               },
               _vm.handleChange

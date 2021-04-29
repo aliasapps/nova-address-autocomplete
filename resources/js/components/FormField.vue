@@ -6,7 +6,7 @@
           ref="address"
           :id="field.name"
           class="w-full form-control form-input form-input-bordered"
-          :class="{ ...errorClasses, 'bg-gray-300': !showAutcomplete }"
+          :class="{ 'bg-gray-300': !showAutcomplete }"
           :placeholder="field.name"
           :country="field.countries"
           v-on:placechanged="getAddressData"
@@ -36,7 +36,7 @@ export default {
     Nova.$on("has_alternate_address-change", this.handleListener);
   },
 
-  data: function() {
+  data() {
     return {
       address: "",
       showAutocomplete: false,

@@ -448,14 +448,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   created: function created() {
     Nova.$on("has_alternate_address-change", this.handleListener);
   },
-
-
   data: function data() {
     return {
       address: "",
       showAutocomplete: false
     };
   },
+
 
   methods: {
     handleListener: function handleListener(booleanValue) {
@@ -27331,9 +27330,7 @@ var render = function() {
             _c("vue-google-autocomplete", {
               ref: "address",
               staticClass: "w-full form-control form-input form-input-bordered",
-              class: Object.assign({}, _vm.errorClasses, {
-                "bg-gray-300": !_vm.showAutcomplete
-              }),
+              class: { "bg-gray-300": !_vm.showAutcomplete },
               attrs: {
                 id: _vm.field.name,
                 placeholder: _vm.field.name,

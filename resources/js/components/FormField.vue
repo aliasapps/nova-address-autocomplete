@@ -3,7 +3,6 @@
     <template slot="field">
       <!-- <div class="form-group"> -->
       <input
-        :id="field.name"
         type="checkbox"
         class="checkbox"
         v-model="checkbox"

@@ -443,7 +443,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -27353,7 +27352,7 @@ var render = function() {
             }
           ],
           staticClass: "checkbox",
-          attrs: { id: _vm.field.name, type: "checkbox" },
+          attrs: { type: "checkbox" },
           domProps: {
             checked: Array.isArray(_vm.checkbox)
               ? _vm._i(_vm.checkbox, null) > -1

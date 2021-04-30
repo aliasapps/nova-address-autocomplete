@@ -2,7 +2,7 @@
   <default-field :field="field">
     <template slot="field">
       <div class="grid grid-cols-6">
-        <div class="col-span-1 flex justify-center items-center">
+        <div :class="checkboxClassObject">
           <input
             id="alt-address"
             type="checkbox"
@@ -64,10 +64,17 @@ export default {
 
     classObject() {
       return {
-        "form-group col-span-5 col-start-2": true,
-
+        "form-group ": true,
+        "col-span-5 col-start-2": this.field.name !== "Address",
         invisible: !this.checked,
-        visible: this.checked,
+        visible: this.checked || this.field.name === "Address",
+      };
+    },
+
+    checkboxClassObject() {
+      return {
+        hidden: this.field.name === "Address",
+        "col-span-1 flex justify-center items-center": true,
       };
     },
   },

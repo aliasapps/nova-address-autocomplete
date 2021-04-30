@@ -477,10 +477,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     classObject: function classObject() {
       return {
-        "form-group col-span-5 col-start-2": true,
-
+        "form-group ": true,
+        "col-span-5 col-start-2": this.field.name !== "Address",
         invisible: !this.checked,
-        visible: this.checked
+        visible: this.checked || this.field.name === "Address"
+      };
+    },
+    checkboxClassObject: function checkboxClassObject() {
+      return {
+        hidden: this.field.name === "Address",
+        "col-span-1 flex justify-center items-center": true
       };
     }
   },
@@ -27351,50 +27357,46 @@ var render = function() {
     [
       _c("template", { slot: "field" }, [
         _c("div", { staticClass: "grid grid-cols-6" }, [
-          _c(
-            "div",
-            { staticClass: "col-span-1 flex justify-center items-center" },
-            [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.checked,
-                    expression: "checked"
-                  }
-                ],
-                staticClass: "checkbox",
-                attrs: { id: "alt-address", type: "checkbox" },
-                domProps: {
-                  checked: Array.isArray(_vm.checked)
-                    ? _vm._i(_vm.checked, null) > -1
-                    : _vm.checked
-                },
-                on: {
-                  change: function($event) {
-                    var $$a = _vm.checked,
-                      $$el = $event.target,
-                      $$c = $$el.checked ? true : false
-                    if (Array.isArray($$a)) {
-                      var $$v = null,
-                        $$i = _vm._i($$a, $$v)
-                      if ($$el.checked) {
-                        $$i < 0 && (_vm.checked = $$a.concat([$$v]))
-                      } else {
-                        $$i > -1 &&
-                          (_vm.checked = $$a
-                            .slice(0, $$i)
-                            .concat($$a.slice($$i + 1)))
-                      }
+          _c("div", { class: _vm.checkboxClassObject }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.checked,
+                  expression: "checked"
+                }
+              ],
+              staticClass: "checkbox",
+              attrs: { id: "alt-address", type: "checkbox" },
+              domProps: {
+                checked: Array.isArray(_vm.checked)
+                  ? _vm._i(_vm.checked, null) > -1
+                  : _vm.checked
+              },
+              on: {
+                change: function($event) {
+                  var $$a = _vm.checked,
+                    $$el = $event.target,
+                    $$c = $$el.checked ? true : false
+                  if (Array.isArray($$a)) {
+                    var $$v = null,
+                      $$i = _vm._i($$a, $$v)
+                    if ($$el.checked) {
+                      $$i < 0 && (_vm.checked = $$a.concat([$$v]))
                     } else {
-                      _vm.checked = $$c
+                      $$i > -1 &&
+                        (_vm.checked = $$a
+                          .slice(0, $$i)
+                          .concat($$a.slice($$i + 1)))
                     }
+                  } else {
+                    _vm.checked = $$c
                   }
                 }
-              })
-            ]
-          ),
+              }
+            })
+          ]),
           _vm._v(" "),
           _c(
             "div",

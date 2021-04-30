@@ -511,7 +511,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
      * Fill the given FormData object with the field's internal value.
      */
     fill: function fill(formData) {
-      if (this.checked) {
+      if (this.checked || this.field.name === "Address") {
         formData.append(this.field.attribute, this.value || "");
       } else {
         formData.append(this.field.attribute, null);

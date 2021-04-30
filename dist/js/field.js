@@ -457,6 +457,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   props: ["resourceName", "resourceId", "field"],
 
   created: function created() {
+    console.log(this.field.name);
     // console.log("value: ", this.field.value, "checked: ", this.checked);
     if (this.field.value) {
       this.checked = true;

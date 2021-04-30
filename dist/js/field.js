@@ -457,7 +457,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   props: ["resourceName", "resourceId", "field"],
 
   created: function created() {
-    console.log(this.field.name === "Address");
+    // console.log(this.field.name === "Address");
     // console.log("value: ", this.field.value, "checked: ", this.checked);
     if (this.field.value) {
       this.checked = true;
@@ -479,9 +479,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     classObject: function classObject() {
       return {
         "form-group ": true,
+        // For Customer Form
+        "col-span-6": this.field.name === "Address",
+        visible: this.checked || this.field.name === "Address",
+        // For Order Form
         "col-span-5 col-start-2": this.field.name !== "Address",
-        invisible: !this.checked && this.field.name !== "Address",
-        visible: this.checked || this.field.name === "Address"
+        invisible: !this.checked && this.field.name !== "Address"
       };
     },
     checkboxClassObject: function checkboxClassObject() {

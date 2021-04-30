@@ -67,7 +67,7 @@ export default {
       return {
         "form-group ": true,
         "col-span-5 col-start-2": this.field.name !== "Address",
-        invisible: !this.checked,
+        invisible: !this.checked && this.field.name !== "Address",
         visible: this.checked || this.field.name === "Address",
       };
     },

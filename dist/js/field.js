@@ -480,7 +480,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       return {
         "form-group ": true,
         "col-span-5 col-start-2": this.field.name !== "Address",
-        invisible: !this.checked,
+        invisible: !this.checked && this.field.name !== "Address",
         visible: this.checked || this.field.name === "Address"
       };
     },

@@ -458,8 +458,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   created: function created() {
     // console.log(this.field.name === "Address");
-    console.log("value: ", this.field.value, "checked: ", this.checked);
-    if (this.field.value) {
+    // console.log("value: ", this.field.value, "checked: ", this.checked);
+    if (this.field.value && this.field.value !== "null") {
       this.checked = true;
     }
   },

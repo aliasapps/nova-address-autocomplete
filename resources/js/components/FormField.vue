@@ -60,7 +60,9 @@ export default {
 
   computed: {
     placeholder() {
-      return this.field.value ? this.field.value : this.field.name;
+      return this.field.value && this.field.value !== "null"
+        ? this.field.value
+        : this.field.name;
     },
 
     classObject() {

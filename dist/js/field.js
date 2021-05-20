@@ -474,7 +474,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   computed: {
     placeholder: function placeholder() {
-      return this.field.value ? this.field.value : this.field.name;
+      return this.field.value && this.field.value !== "null" ? this.field.value : this.field.name;
     },
     classObject: function classObject() {
       return {

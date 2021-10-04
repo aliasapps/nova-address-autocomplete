@@ -87,6 +87,7 @@ export default {
 
   methods: {
     getAddressData: function(addressData, placeResultData, id) {
+      console.log({ placeResultData });
       this.handleChange(placeResultData.formatted_address);
     },
     /*
